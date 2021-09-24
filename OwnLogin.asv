@@ -1,0 +1,17 @@
+Iin = imread("C:\Users\RFaiz\Downloads\flower.jpg");
+Iin = rgb2gray(Iin);
+dummy =   [0.125 0.125 0.125 0.125 0.125 0.125;
+    0.125 0.125 0.125 0.125 0.125 0.125;
+    0.125 0.125 -1 -1 0.125 0.125;
+    0.125 0.125 -1 -1 0.125 0.125;
+    0.125 0.125 0.125 0.125 0.125 0.125;
+    0.125 0.125 0.125 0.125 0.125 0.125]; % 0.125 is grey like and -1 is black
+balanced = imfilter( Iin, dummy);
+Iout = 255-balanced;
+% Sub Plot of 2 rows, 2 Columns
+figure(1);
+subplot(1,2,1), imshow(Iin), title('ID  (A)'); % just showing origanal image
+subplot(1,2,2), imshow(Iout), title('Histogram of ID CARD (B)'); % histogram of orignal image
+% logic explained by Aggelos K. Katsaggelos
+% https://www.coursera.org/learn/digital
+% I can give you viva of this logic
